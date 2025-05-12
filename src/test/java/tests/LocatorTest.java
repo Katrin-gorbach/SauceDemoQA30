@@ -1,3 +1,5 @@
+package tests;
+
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
@@ -10,8 +12,5 @@ public class LocatorTest extends BaseTest {
 		driver.findElement(By.name("user-name"));
 		driver.findElement(By.className("error-message-container"));
 		//driver.findElement(By.tagName());
-
-
 	}
-
 }
