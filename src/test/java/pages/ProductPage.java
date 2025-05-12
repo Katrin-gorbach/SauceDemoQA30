@@ -15,6 +15,8 @@ public class ProductPage extends BasePage {
 
 	private static final String ADD_TO_CART_PATTERN = "//*[text() = '%s']/ancestor::div[@class = 'inventory_item']" +
 			"//button";
+	private static final String OPEN_PRODUCT_PATTERN = "//div[text()='%s']";
+	private static final String OPEN_PRODUCT_FORM = "//div[@class='inventory_details_name large_size']";
 
 	public String getTitle() {
 		return driver.findElement(TITLE).getText();
@@ -26,6 +28,14 @@ public class ProductPage extends BasePage {
 
 	public void openCart() {
 		driver.findElement(CART_BUTTON).click();
+	}
+
+	public void openProduct(String product) {
+		driver.findElement(By.xpath(String.format(OPEN_PRODUCT_PATTERN, product))).click();
+	}
+
+	public String productForm() {
+		return driver.findElement(By.xpath(OPEN_PRODUCT_FORM)).getText();
 	}
 
 }
