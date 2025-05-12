@@ -11,10 +11,10 @@ public class CartPage extends BasePage {
 
 	private static final By CONTINUE_SHOPPING_BUTTON = By.xpath("//button[text()='Continue Shopping']");
 	private static final String OPEN_PRODUCT_FROM_CART_PATTERN = "//div[@class='inventory_item_name'][text()='%s']";
-	private static final By CHEKOUT_BUTTON = By.id("checkout");
+	private static final By CHECKOUT_BUTTON = By.id("checkout");
 
 	public void checkoutButton() {
-		driver.findElement(CHEKOUT_BUTTON).click();
+		driver.findElement(CHECKOUT_BUTTON).click();
 	}
 
 	public void open() {

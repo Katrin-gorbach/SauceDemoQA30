@@ -13,7 +13,7 @@ public class CheckoutPage extends BasePage {
 	private static final By FIRST_NAME_FIELD = By.id("first-name");
 	private static final By LAST_NAME_FIELD = By.id("last-name");
 	private static final By ZIP_FIELD = By.id("postal-code");
-	private static final By CHECOUT_ERROR_MESSAGE = By.xpath("//h3[@data-test='error']");
+	private static final By CHECkOUT_ERROR_MESSAGE = By.xpath("//h3[@data-test='error']");
 
 	public void yourInformation(String firstName, String lastName, String zip) {
 		driver.findElement(FIRST_NAME_FIELD).sendKeys(firstName);
@@ -23,6 +23,6 @@ public class CheckoutPage extends BasePage {
 	}
 
 	public String getErrorMessage() {
-		return driver.findElement(CHECOUT_ERROR_MESSAGE).getText();
+		return driver.findElement(CHECkOUT_ERROR_MESSAGE).getText();
 	}
 }
