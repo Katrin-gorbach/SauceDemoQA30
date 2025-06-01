@@ -2,6 +2,10 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CartPage extends BasePage {
 
@@ -27,5 +31,26 @@ public class CartPage extends BasePage {
 
 	public void productInCart(String product) {
 		driver.findElement(By.xpath(String.format(OPEN_PRODUCT_FROM_CART_PATTERN, product))).click();
+	}
+
+	public String getProductFromCart(int index) {
+		return driver.findElements(By.cssSelector(".inventory_item_number")).get(index).getText();
+	}
+
+	public ArrayList<String> getProductsName(){
+		List<WebElement> allProductsElements = driver.findElements(By.cssSelector(".inventory_item_number"));
+		ArrayList<String> names = new ArrayList<>();
+		for (WebElement product: allProductsElements){
+			names.add(product.getText());
+		}
+		return names;
+	}
+
+	public double getProductPrice(String product){
+		return Double.parseDouble(driver.findElement(
+						By.xpath(String.format(
+								"//*[text() = '%s']/ancestor::div[@class='cart_item']//" +
+										"*[@class = 'inventory_item_price']", product)))
+				.getText().replace("$", ""));
 	}
 }
