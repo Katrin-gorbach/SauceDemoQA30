@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="2" name="SauceDemo Smoke Test" parallel="tests">
+    <listeners>
+        <listener class-name="tests.TestListener"/>
+        <listener class-name="tests.AnnotationTransformer"/> <!-- allows to modify TestNG annotations
+        and configure them further during runtime.
+        From now on, we do not need to specify “@Test(retryAnalyzer = Retry.class)” in this annotation.
+        We can just only use @Test annotation without retryAnalyzer attribute.-->
+    </listeners>
+    <test name="Thread #1">
+        <classes>
+            <class name="tests.LoginTest"> <!-- Test from class that will run -->
+            <methods>
+                <include name="checkLoginWithEmptyPassword"/>
+                <exclude name="login"/>
+            </methods></class>
+            <class name="tests.BurgerMenuTest"/>
+        </classes>
+    </test> <!-- Test -->
+    <test name="Thread #2">
+        <groups>
+            <run>
+                <include name="regression"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="tests.CartTest"/>
+            <class name="tests.CheckoutTest"/>
+        </classes>
+    </test> <!-- Test -->
+</suite>

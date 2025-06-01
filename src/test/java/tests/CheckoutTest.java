@@ -6,7 +6,8 @@ import static org.testng.Assert.assertEquals;
 
 public class CheckoutTest extends BaseTest {
 
-	@Test
+	@Test(description = "Validation your information form", priority = 2, testName = "emptyYourInformation",
+			groups = {"regression"})
 	public void emptyYourInformation() {
 		loginPage.open();
 		loginPage.login("standard_user", "secret_sauce");
