@@ -1,6 +1,5 @@
 package tests;
 
-import net.bytebuddy.build.Plugin;
 import org.testng.annotations.Test;
 import pages.BasePage;
 

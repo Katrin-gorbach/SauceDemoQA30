@@ -36,7 +36,7 @@ public class LoginTest extends BaseTest {
 		assertEquals(title, "Products", "Логин не выполнен");
 	}
 
-	@Test(description = "Invalid password", invocationCount =  5)
+	@Test(description = "Invalid password", invocationCount = 5)
 	public void checkLocatorInvalidPassword() {
 		driver.get("https://www.saucedemo.com/");
 		driver.findElement(By.id("user-name")).sendKeys("standard_user");
@@ -48,8 +48,8 @@ public class LoginTest extends BaseTest {
 				"Нет сообщения об ошибке");
 	}
 
-	@DataProvider (name = "Negative tests for Login")
-	public Object[][] loginData(){
+	@DataProvider(name = "Negative tests for Login")
+	public Object[][] loginData() {
 		return new Object[][]{
 				{"standard_user", "", "Epic sadface: Password is required"},
 				{"standard_user", "123", "Epic sadface: Username and password do not match any user in this service"}

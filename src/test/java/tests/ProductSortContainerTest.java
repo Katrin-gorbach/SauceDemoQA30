@@ -1,4 +1,4 @@
 package tests;
 
-public class ProductSortContainerTest extends BaseTest{
+public class ProductSortContainerTest extends BaseTest {
 }
