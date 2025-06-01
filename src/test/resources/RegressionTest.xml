@@ -11,10 +11,11 @@
     <test name="Thread #1">
         <classes>
             <class name="tests.LoginTest"> <!-- Test from class that will run -->
-            <methods>
-                <include name="checkLoginWithEmptyPassword"/>
-                <exclude name="login"/>
-            </methods></class>
+                <methods>
+                    <include name="checkLoginWithEmptyPassword"/>
+                    <exclude name="login"/>
+                </methods>
+            </class>
             <class name="tests.BurgerMenuTest"/>
         </classes>
     </test> <!-- Test -->
