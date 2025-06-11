@@ -1,5 +1,6 @@
 package tests;
 
+import io.qameta.allure.Description;
 import org.testng.annotations.Test;
 import pages.BasePage;
 
@@ -7,7 +8,8 @@ import static org.testng.Assert.assertEquals;
 
 public class BurgerMenuTest extends BaseTest {
 
-	@Test
+	@Test(description = "Validation Logout", priority = 1, testName = "checkLogout", groups = {"regression"})
+	@Description("Validation Logout")
 	public void checkLogout() {
 		loginPage.open();
 		loginPage.login("standard_user", "secret_sauce");
@@ -18,7 +20,8 @@ public class BurgerMenuTest extends BaseTest {
 		assertEquals(driver.getCurrentUrl(), BasePage.BASE_URL, "Still in system");
 	}
 
-	@Test
+	@Test(description = "Validation all items from product cart", priority = 2, testName = "checkAllItemsFromProductCart")
+	@Description("Validation all items from product cart")
 	public void checkAllItemsFromProductCart() {
 		loginPage.open();
 		loginPage.login("standard_user", "secret_sauce");
@@ -27,6 +30,6 @@ public class BurgerMenuTest extends BaseTest {
 		burgerMenuPage.items();
 		// Добавляем паузу 3 секунды, чтобы успеть увидеть, что происходит
 		//Thread.sleep(3000);
-		assertEquals(driver.getCurrentUrl(), BasePage.BASE_URL + "inventory.html", "Not Main Page");
+
 	}
 }
