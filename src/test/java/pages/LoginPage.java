@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -18,16 +19,20 @@ public class LoginPage extends BasePage {
 		super(driver); //вызывает конструктор родительского класса (суперкласса) и передает ему driver
 	}
 
+	@Step("Open Login page")
 	public void open() {
 		driver.get(BASE_URL);
+
 	}
 
+	@Step("Login with correct user credentials: {user} and password:{password}")
 	public void login(String user, String password) {
 		driver.findElement(USER_NAME_FIELD).sendKeys(user);
 		driver.findElement(PASSWORD_FIELD).sendKeys(password);
 		driver.findElement(LOGIN_BUTTON).click();
 	}
 
+	@Step("Get error message")
 	public String getErrorMessage() {
 		return driver.findElement(ERROR_MESSAGE).getText();
 	}

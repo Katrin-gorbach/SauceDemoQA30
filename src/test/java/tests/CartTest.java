@@ -1,5 +1,6 @@
 package tests;
 
+import io.qameta.allure.*;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
@@ -9,6 +10,16 @@ public class CartTest extends BaseTest {
 
 	@Test(description = "Validation shopping cart value", priority = 1, testName = "checkShoppingCartItemValues",
 			groups = "smoke")
+	@Epic("Shopping Cart")
+	@Feature("Add item")
+	@Story("View shopping cart item")
+	@Severity(SeverityLevel.CRITICAL)
+	@Owner("E Gorbach")
+	@Description("Validation shopping cart value")
+	@Flaky
+	@Link(name = "Documentation", url = "https://github.com/allure-framework/allure-maven/blob/main/README.md")
+	@TmsLink("TmsLink")
+	@Issue("1000")
 	public void checkShoppingCartItemValues() {
 		loginPage.open();
 		loginPage.login("standard_user", "secret_sauce");
@@ -19,6 +30,7 @@ public class CartTest extends BaseTest {
 
 	@Test(retryAnalyzer = Retry.class, description = "Validation continue button", priority = 1,
 			testName = "checkContinueShopping", groups = {"regression"})
+	@Description("Validation continue button")
 	public void checkContinueShopping() {
 		loginPage.open();
 		loginPage.login("standard_user", "secret_sauce");
@@ -29,6 +41,7 @@ public class CartTest extends BaseTest {
 	}
 
 	@Test(description = "Validation item form", priority = 2, testName = "openProductItemFromCart", groups = {"regression"})
+	@Description("Validation item form")
 	public void openProductItemFromCart() {
 		loginPage.open();
 		loginPage.login("standard_user", "secret_sauce");
@@ -41,6 +54,4 @@ public class CartTest extends BaseTest {
 		assertTrue(cartPage.getProductsName().contains("Sauce Labs Backpack"));
 		assertEquals(cartPage.getProductPrice("Sauce Labs Backpack"), 29.9);
 	}
-
-
 }

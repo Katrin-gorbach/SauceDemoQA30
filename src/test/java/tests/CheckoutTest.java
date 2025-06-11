@@ -1,5 +1,6 @@
 package tests;
 
+import io.qameta.allure.Description;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -19,6 +20,7 @@ public class CheckoutTest extends BaseTest {
 
 	@Test(dataProvider = "Negative tests for Information", description = "Validation your information form",
 			priority = 2, testName = "emptyYourInformation", groups = {"regression"})
+	@Description("Validation your information form")
 	public void emptyYourInformation(String firstName, String lastName, String zip, String errorMessage) {
 		loginPage.open();
 		loginPage.login("standard_user", "secret_sauce");
