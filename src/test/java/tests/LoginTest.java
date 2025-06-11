@@ -19,7 +19,7 @@ public class LoginTest extends BaseTest {
 	@Description("Validation login")
 	public void checkSuccessLogin() {
 		loginPage.open();
-		loginPage.login("standard_user", "secret_sauce");
+		loginPage.login(user, password);
 		assertEquals(productPage.getTitle(), "Products",
 				"Логин не выполнен");
 	}
