@@ -38,6 +38,7 @@ public class BaseTest {
 		options.addArguments("--disable-notifications");
 		options.addArguments("--disable-popup-blocking");
 		options.addArguments("--disable-infobars");
+		options.addArguments("--headless");
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.manage().window().maximize();
 		} else if (browser.equals("edge")) {
@@ -50,6 +51,7 @@ public class BaseTest {
 		productPage = new ProductPage(driver);
 		burgerMenuPage = new BurgerMenuPage(driver);
 		cartPage = new CartPage(driver);
+
 	}
 
 	@AfterMethod(alwaysRun = true, description = "Closing browser")
@@ -57,6 +59,8 @@ public class BaseTest {
 		if(ITestResult.FAILURE == result.getStatus()){
 			takeScreenshot(driver);
 		}
-		driver.quit();
+		if (driver != null) {
+			driver.quit();
+		}
 	}
 }
