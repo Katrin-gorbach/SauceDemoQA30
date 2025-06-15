@@ -24,7 +24,7 @@ public class LoginTest extends BaseTest {
 				"Логин не выполнен");
 	}
 
-	@Test(enabled = false)
+	@Test(description = "Validation Login with empty Password")
 	@Description("Validation Login with empty Password")
 	public void checkLoginWithEmptyPassword() {
 		loginPage.open();
