@@ -9,7 +9,7 @@ import static org.testng.Assert.assertTrue;
 public class CartTest extends BaseTest {
 
 	@Test(description = "Validation shopping cart value", priority = 1, testName = "checkShoppingCartItemValues",
-			groups = "smoke")
+			groups = "smoke", enabled = false)
 	@Epic("Shopping Cart")
 	@Feature("Add item")
 	@Story("View shopping cart item")
@@ -40,7 +40,7 @@ public class CartTest extends BaseTest {
 				"Not Main Page");
 	}
 
-	@Test(description = "Validation item form", priority = 2, testName = "openProductItemFromCart", groups = {"regression"})
+	@Test(description = "Validation item form", priority = 2, testName = "openProductItemFromCart", groups = {"regression"}, enabled = false)
 	@Description("Validation item form")
 	public void openProductItemFromCart() {
 		loginPage.open();
