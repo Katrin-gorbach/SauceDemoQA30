@@ -1,7 +1,6 @@
 package tests;
 
 import org.openqa.selenium.WebDriver;
-
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -30,24 +29,29 @@ public class BaseTest {
 	String password = System.getProperty("password", PropertyReader.getProperty("password"));
 
 	@Parameters({"browser"})
-	@BeforeMethod (alwaysRun = true, description = "Opening browser")
+	@BeforeMethod(alwaysRun = true, description = "Opening browser")
 	public void setup(@Optional("chrome") String browser, ITestContext context) {
-		if(browser.equals("chrome")){
-		options = new ChromeOptions();
-		options.addArguments("--incognito");
-		driver = new ChromeDriver(options);
-		options.addArguments("--disable-notifications");
-		options.addArguments("--disable-popup-blocking");
-		options.addArguments("--disable-infobars");
-		options.addArguments("--headless");
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		driver.manage().window().maximize();
+		if (browser.equalsIgnoreCase("chrome")) {
+			options = new ChromeOptions();
+			options.addArguments("--incognito");
+			options.addArguments("--disable-notifications");
+			options.addArguments("--disable-popup-blocking");
+			options.addArguments("--disable-infobars");
+			options.addArguments("--headless");
+
+			driver = new ChromeDriver(options);
 		} else if (browser.equalsIgnoreCase("edge")) {
 			EdgeOptions options = new EdgeOptions();
 			options.addArguments("--headless");
+
 			driver = new EdgeDriver(options);
 		}
+
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.manage().window().maximize();
+
 		context.setAttribute("driver", driver);
+
 		checkoutPage = new CheckoutPage(driver);
 		softAssert = new SoftAssert();
 		loginPage = new LoginPage(driver);
@@ -62,7 +66,7 @@ public class BaseTest {
 
 	@AfterMethod(alwaysRun = true, description = "Closing browser")
 	public void tearDown(ITestResult result) {
-		if(ITestResult.FAILURE == result.getStatus()){
+		if (ITestResult.FAILURE == result.getStatus()) {
 			takeScreenshot(driver);
 		}
 		if (driver != null) {
