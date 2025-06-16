@@ -55,6 +55,9 @@ public class BaseTest {
 		burgerMenuPage = new BurgerMenuPage(driver);
 		cartPage = new CartPage(driver);
 
+		System.out.println(user);
+		System.out.println(password);
+
 	}
 
 	@AfterMethod(alwaysRun = true, description = "Closing browser")
