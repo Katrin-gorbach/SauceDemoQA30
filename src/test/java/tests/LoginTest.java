@@ -12,7 +12,7 @@ import static org.testng.Assert.assertEquals;
 
 public class LoginTest extends BaseTest {
 
-	@Test(groups = {"smoke"}, description = "Validation login", priority = 1, testName = "checkSuccessLogin", enabled = false)
+	@Test(groups = {"smoke"}, description = "Validation login", priority = 1, testName = "checkSuccessLogin")
 	@Epic("Authorization")
 	@Feature("Login page")
 	@Story("Positive login")
@@ -35,7 +35,7 @@ public class LoginTest extends BaseTest {
 				"Нет сообщения об ошибке");
 	}
 
-	@Test(enabled = false)
+	@Test
 	@Description("Locator Validation")
 	public void checkLocator() {
 		driver.get("https://www.saucedemo.com/");
