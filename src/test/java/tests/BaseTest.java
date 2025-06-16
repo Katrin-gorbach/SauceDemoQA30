@@ -39,6 +39,10 @@ public class BaseTest {
 			options.addArguments("--disable-infobars");
 			options.addArguments("--headless");
 
+			options.addArguments("--no-sandbox");
+			options.addArguments("--disable-dev-shm-usage");
+			options.addArguments("--disable-gpu");
+
 			driver = new ChromeDriver(options);
 		} else if (browser.equalsIgnoreCase("edge")) {
 			EdgeOptions options = new EdgeOptions();
