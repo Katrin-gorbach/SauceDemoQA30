@@ -40,7 +40,8 @@ public class CartTest extends BaseTest {
 				"Not Main Page");
 	}
 
-	@Test(description = "Validation item form", priority = 2, testName = "openProductItemFromCart", groups = {"regression"}, enabled = false)
+	@Test(description = "Validation item form", priority = 2, testName = "openProductItemFromCart", groups = {"regression"},
+			enabled = false)
 	@Description("Validation item form")
 	public void openProductItemFromCart() {
 		loginPage.open();
